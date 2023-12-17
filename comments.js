@@ -15,8 +15,6 @@ app.post('/events', async (req, res) => {
   if (type === 'CommentCreated') {
     // Get the content from the comment created event
     const { id, content, postId, status } = data;
-    // Replace the content of the comment with the content of the comment and the status of the comment
-    const status = content.includes('orange') ? 'rejected' : 'approved';
 
     // Make a post request to the event bus and send the comment updated event
     await axios.post('http://localhost:4005/events', {
